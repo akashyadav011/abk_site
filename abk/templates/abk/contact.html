@@ -1,0 +1,53 @@
+{% extends 'abk/base.html' %}
+{% load form_tags %}
+{% block content %}
+<section class="py-5">
+  <div class="container" data-aos="fade-up">
+    <div class="text-center mb-5">
+      <h2 class="section-title fw-bold">Let’s Connect with ABK</h2>
+      <p class="text-muted">Looking for high-performance tooling solutions or custom machining support? Drop us a message and our expert team will reach out.</p>
+    </div>
+    
+    {% if success %}
+    <div class="alert alert-success text-center">✅ Thank you! Your enquiry has been submitted. Our team will get in touch shortly.</div>
+    {% endif %}
+
+    <form method="POST" class="row g-4 bg-white p-4 rounded shadow-sm border">
+      {% csrf_token %}
+
+      <div class="col-md-6">
+        <label for="id_name" class="form-label">Full Name <span class="text-danger">*</span></label>
+        {{ form.name|add_class:"form-control" }}
+      </div>
+
+      <div class="col-md-6">
+        <label for="id_email" class="form-label">Email Address <span class="text-danger">*</span></label>
+        {{ form.email|add_class:"form-control" }}
+      </div>
+
+      <div class="col-md-6">
+        <label for="id_phone" class="form-label">Phone Number</label>
+        {{ form.phone|add_class:"form-control" }}
+      </div>
+
+      <div class="col-md-12">
+        <label for="id_message" class="form-label">Your Message <span class="text-danger">*</span></label>
+        {{ form.message|add_class:"form-control" }}
+      </div>
+
+      {{ form.product }} <!-- hidden input -->
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary px-5 py-2 shadow-sm mt-3">📩 Submit Enquiry</button>
+        <p class="text-muted mt-3 small">Your data is safe with us. We never share personal information.</p>
+      </div>
+    </form>
+
+    <div class="mt-5 text-center">
+      <h5 class="fw-bold mb-2">Prefer Direct Contact?</h5>
+      <p>Email us at <a href="mailto:abkindustries23@gmail.com">abkindurtsies23@gmail.com</a> or call <strong>+91-XXXXXXXXXX</strong></p>
+      <p>Visit us at: Building No – 1, Near Nihal Hospital, Alimuddinpur, Farrukhnagar, Gurugram (HR) - 122506</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

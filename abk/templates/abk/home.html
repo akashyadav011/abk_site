@@ -1,0 +1,78 @@
+{% extends 'abk/base.html' %}
+{% block content %}
+<section class="hero-section" data-aos="fade-in">
+  <div class="container">
+    <h1 class="display-3 fw-bold">Empowering Precision Engineering</h1>
+    <p class="lead">High-Performance Tools for Aerospace, Automotive, and Manufacturing</p>
+    <a href="/products/" class="btn btn-primary btn-lg mt-3 shadow">Explore Products</a>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container" data-aos="fade-up">
+    <div class="text-center mb-5">
+      <h2 class="section-title fw-bold">Why Choose ABK Industries?</h2>
+      <p class="text-muted">Advanced precision tools backed by high testing standards and industry-grade materials.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 p-4 text-center">
+          <img src="/static/images/precision.svg" width="60" class="mb-3" alt="Precision">
+          <h5 class="fw-bold">Precision Tools</h5>
+          <p>High-precision cutting tools for complex operations, ensuring tighter tolerances and longer tool life.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 p-4 text-center">
+          <img src="/static/images/quality.svg" width="60" class="mb-3" alt="Quality">
+          <h5 class="fw-bold">Quality Assurance</h5>
+          <p>Tested using high-end inspection equipment to deliver reliable, consistent results across industries.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 p-4 text-center">
+          <img src="/static/images/global.svg" width="60" class="mb-3" alt="Global">
+          <h5 class="fw-bold">Global Reach</h5>
+          <p>Trusted by clients across India and beyond. We support global demand with timely service and innovation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container" data-aos="fade-up">
+    <div class="text-center mb-4">
+      <h2 class="section-title fw-bold">Product Categories</h2>
+    </div>
+    <div class="row">
+      {% for category in categories %}
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <img src="/static/images/{{ category.slug }}.jpg" class="card-img-top" alt="{{ category.name }}">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ category.name }}</h5>
+            <a href="/products/?category={{ category.slug }}" class="btn btn-outline-primary btn-sm">View Tools</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="py-5" style="background-color: #e2f4f7;">
+  <div class="container" data-aos="zoom-in">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h2 class="section-title fw-bold">Need a Custom Tool Solution?</h2>
+        <p class="mb-4">We design and manufacture custom tools including micro-diameter mills, thread mills, forming tools, and more to meet your specific needs.</p>
+        <a href="/contact/" class="btn btn-primary shadow">Get in Touch</a>
+      </div>
+      <div class="col-md-6">
+        <img src="/static/images/custom-tools.jpg" class="img-fluid rounded shadow-sm" alt="Custom Tooling">
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
